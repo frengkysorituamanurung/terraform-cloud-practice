@@ -5,10 +5,10 @@ generate "provider" {
 terraform {
   cloud {
     hostname     = "app.terraform.io"
-    organization = "intern-sre"
+    organization = "sre-kyy"
 
     workspaces {
-      name = "learn-terraform"
+      name = "learn-terraform-migration"
     }
   }
 
@@ -21,9 +21,10 @@ terraform {
 }
 
 provider "google" {
-  project = "intern-infra"
-  region  = "asia-southeast2"
-  zone    = "asia-southeast2-a"
+  project     = "intern-infra"
+  region      = "asia-southeast2"
+  zone        = "asia-southeast2-a"
+  credentials = file("tf-key.json")
 }
 EOF
 }
